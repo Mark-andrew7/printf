@@ -6,9 +6,8 @@
  */
 int _printf(const char *format, ...)
 {
-char format;
 format = "alphabet";
 
-printf("%c" comes first in the "%s", "a", format);
+printf("%c" comes first in the "%s"), "a", format;
 return (0);
 }
