@@ -11,4 +11,5 @@ char format;
 format = "alphabet";
 
 fprintf("%c" comes first in the "%s", "a", format);
+return (0);
 }
