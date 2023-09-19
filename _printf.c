@@ -1,62 +1,50 @@
 #include "main.h"
 
-#include <stdarg.h>
-#include <unistd.h>
 /**
- * _printf - function that produces output according to a format.
- * @format: character string
- * Return: number of chars printed
+ * print_normal_text - prints normal text characters
+ * @format_cpy: pointer to the format string
+ * @count: pointer to the character count
  */
-int _printf(const char * const format, ...)
+void print_normal_text(const char **format_cpy, int *count)
 {
-va_list args;
+while (**format_cpy && **format_cpy != '%')
+{
+_putchar(**format_cpy);
+(*count)++;
+(*format_cpy)++;
+}
+}
+
+/**
+ * _printf - custom printf function
+ * @format: format string
+ * Return: number of characters printed
+ */
+int _printf(const char *format, ...)
+{
 int count = 0;
+va_list args;
+const char *format_cpy = format;
 
 va_start(args, format);
 
-const char *format_cpy = format;
-
-while (*format_cpy != '\0')
+while (*format_cpy)
 {
 if (*format_cpy == '%')
 {
 format_cpy++;
 if (*format_cpy == '\0')
 break;
-
-if (*format_cpy == 'c')
-{
-char c = va_arg(args, int);
-write(1, &c, 1);
-count++;
-}
-else if (*format_cpy == 's')
-{
-char *str = va_arg(args, char*);
-if (str != NULL)
-{
-while (*str != '\0')
-{
-write(1, str, 1);
-str++;
-count++;
-}
-}
-}
-}
-else if (*format_cpy == '%')
-{
-write(1, "%", 1);
-count++;
+count += parse_format(format_cpy, args);
+format_cpy++;
 }
 else
 {
-write(1, format_cpy, 1);
-count++;
+print_normal_text(&format_cpy, &count);
 }
-format_cpy++;
 }
 
 va_end(args);
+
 return (count);
 }

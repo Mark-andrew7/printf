@@ -17,14 +17,17 @@ char type;
 int (*f)(va_list, char *, unsigned int);
 } format_t;
 
-
-int printf_int(va_list args);
-int print_char(va_list args);
+int print_hex(va_list args);
+int print_int(va_list arguments, char *buf, unsigned int ibuf);
+int print_char(va_list args, int count);
 unsigned int handle_buffer(char *buf, char c, unsigned int ibuf);
 int print_binary(va_list args);
 int print_string(va_list args, int count);
+int print_octal(va_list args);
 int print_rev(va_list args, char *buf, unsigned int ibuf);
 int _putchar(char c);
 int _printf(const char *format, ...);
+void print_normal_text(const char **format_cpy, int *count);
+int parse_format(const char *format, va_list args);
 
 #endif
