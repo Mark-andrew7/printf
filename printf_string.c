@@ -8,14 +8,16 @@
 int printf_string(va_list val)
 {
 char *str = va_arg(val, char *);
+int len;
+int i;
 
 if (str == NULL)
 str = "(null)";
 
-int len = _strlen(str);
+len = strlen(str);
 
-for (int i = 0; i < len; i++)
+for (i = 0; i < len; i++)
 _putchar(str[i]);
 
-return len;
+return (len);
 }

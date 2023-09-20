@@ -5,6 +5,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * struct format - matches conversion specifiers
