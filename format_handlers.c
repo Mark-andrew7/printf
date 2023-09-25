@@ -6,23 +6,23 @@
  * @args: va_list containing the arguments
  * Return: number of characters printed for this format
  */
-int parse_format(const char *format, __attribute__((unused)) va_list args)
+int parse_format(const char *format, va_list args)
 {
+
 if (*format == 'd' || *format == 'i')
 {
-return (0);
+return (print_int(args, NULL, 0));
 }
 
 else if (*format == 's')
 {
-return (0);
+return (print_string(args));
 }
 
 else if (*format == 'c')
 {
-return (0);
+return (print_char(args));
 }
-
 
 return (0);
 }

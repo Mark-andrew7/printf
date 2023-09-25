@@ -24,7 +24,7 @@ int print_int(va_list arguments, char *buf, unsigned int ibuf);
 int print_char(va_list args, int count);
 unsigned int handle_buffer(char *buf, char c, unsigned int ibuf);
 int print_binary(va_list args);
-int print_string(va_list args, int count);
+int print_string(va_list val);
 int print_octal(va_list args);
 int print_rev(va_list args, char *buf, unsigned int ibuf);
 int _putchar(char c);
