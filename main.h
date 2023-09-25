@@ -29,7 +29,6 @@ int print_octal(va_list args);
 int print_rev(va_list args, char *buf, unsigned int ibuf);
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_normal_text(const char **format_cpy, int *count);
 int parse_format(const char *format, va_list args);
 
 #endif
